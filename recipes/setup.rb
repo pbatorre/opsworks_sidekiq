@@ -55,6 +55,11 @@ node[:deploy].each do |application, deploy|
 
       # Convert attribute classes to plain old ruby objects
       config = options[:config] ? options[:config].to_hash : {}
+
+      Chef::Log.debug("CONFIG start")
+      Chef::Log.debug("#{config}")
+      Chef::Log.debug("CONFIG end")
+
       config.each do |k, v|
         case v
         when Chef::Node::ImmutableArray
